@@ -19,6 +19,10 @@
             .then(data => {
                 console.log(data)
 
+                let pointsData = {
+                    "type": "FeatureCollection",
+                    "features": [],
+                }
                 data.forEach((d, i) => {
                     if (d.Lat.includes('° N'))
                         d.lat = +d.Lat.replace('° N', '');
@@ -36,6 +40,28 @@
                     else if (d.Type === 'Network PoP')
                         d.color = '#E5B80B'
 
+                    pointsData.features.push(
+                        {
+                            'type': 'Feature',
+                            'properties': {
+                                'latitude': d.lat,
+                                'longitude': d.lng,
+                                'city': d.City,
+                                'country': d.Country,
+                                'region': d.Region,
+                                'state': d['State or Prov'],
+                                'type': d.Type,
+                                'color': d.color
+                            },
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [
+                                    d.lat,
+                                    d.lng
+                                ]
+                            }
+                        }
+                    )
                 })
 
                 const N = 300;
@@ -45,13 +71,21 @@
                     size: Math.random() / 3,
                     color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
                 }));
-                console.log(gData)
+                console.log(gData, pointsData)
                 const world = Globe()
                     .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
                     .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
-                    .pointsData(data)
-                    .pointAltitude('size')
-                    .pointColor('color')
+                    .labelsData(pointsData.features)
+                    .labelLat(d => d.properties.latitude)
+                    .labelLng(d => d.properties.longitude)
+                    .labelText(d => d.properties.city)
+                    .labelSize(d => 1.5)
+                    .labelDotRadius(d => 0.8)
+                    .labelColor((d) => d.properties.color)
+                    .labelResolution(2)
+                    // .pointsData(data)
+                    // .pointAltitude('size')
+                    // .pointColor('color')
                     .onGlobeClick(() => world.controls().autoRotate = false)
 
                     (document.getElementById('globeViz'))
