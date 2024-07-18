@@ -4,7 +4,7 @@
             margin: 0;
         }
     </style>
-
+    <meta charset="UTF-8">
     <script src="//unpkg.com/globe.gl"></script>
 </head>
 
@@ -79,15 +79,103 @@
                     .labelLat(d => d.properties.latitude)
                     .labelLng(d => d.properties.longitude)
                     .labelText(d => d.properties.city)
-                    .labelSize(d => 1.5)
-                    .labelDotRadius(d => 0.8)
+                    .labelSize((d) => {
+                        // let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
+                        // let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
+                        // if (distanceIsLessThanHalf)
+                        //     return 0.1
+                        // else {
+                        //     let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
+                        //     if (distanceIsLessThanOne)
+                        //         return 0.25
+                        //     else {
+                        //         let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
+                        //         if (distanceIsLessThanTwo)
+                        //             return 0.5;
+                        //         else {
+                        //             let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
+                        //             if (distanceIsBetweenTwoAndFour)
+                        //                 return 0.75
+                        //             else
+                        //                 return 1
+                        //         }
+                        //     }
+                        // }
+
+                        let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
+                        let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
+                        if (distanceIsLessThanHalf)
+                            return 0.05
+                        else {
+                            let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
+                            if (distanceIsLessThanOne)
+                                return 0.15
+                            else {
+                                let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
+                                if (distanceIsLessThanTwo)
+                                    return 0.3;
+                                else {
+                                    let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
+                                    if (distanceIsBetweenTwoAndFour)
+                                        return 0.6
+                                    else
+                                        return 0.8
+                                }
+                            }
+                        }
+                    })
+                    .labelDotRadius((d) => {
+                        // let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
+                        // let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
+                        // if (distanceIsLessThanHalf)
+                        //     return 0.05
+                        // else {
+                        //     let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
+                        //     if (distanceIsLessThanOne)
+                        //         return 0.1
+                        //     else {
+                        //         let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
+                        //         if (distanceIsLessThanTwo)
+                        //             return 0.2;
+                        //         else {
+                        //             let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
+                        //             if (distanceIsBetweenTwoAndFour)
+                        //                 return 0.4
+                        //             else
+                        //                 return 0.8
+                        //         }
+                        //     }
+                        // }
+
+                        let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
+                        let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
+                        if (distanceIsLessThanHalf)
+                            return 0.025
+                        else {
+                            let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
+                            if (distanceIsLessThanOne)
+                                return 0.05
+                            else {
+                                let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
+                                if (distanceIsLessThanTwo)
+                                    return 0.1;
+                                else {
+                                    let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
+                                    if (distanceIsBetweenTwoAndFour)
+                                        return 0.2
+                                    else
+                                        return 0.5
+                                }
+                            }
+                        }
+                    })
                     .labelColor((d) => d.properties.color)
                     .labelResolution(2)
                     // .pointsData(data)
                     // .pointAltitude('size')
                     // .pointColor('color')
                     .onGlobeClick(() => world.controls().autoRotate = false)
-
+                    // .onZoom(() => world.controls().autoRotate = false)
                     (document.getElementById('globeViz'))
 
                 world.controls().autoRotate = true;
