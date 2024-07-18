@@ -7,7 +7,7 @@ Data Center,Elk Grove Village ,Illinois,USA,North America,42.0039° N,87.9703° 
 Data Center,Frankfurt,,Germany,Europe,50.1109° N,8.6821° E
 Data Center,London,,United Kingdom,Europe,51.5074° N,0.1278° W
 Data Center,San Jose ,California,USA,North America,37.3382° N,121.8863° W
-Data Center,São Paulo ,,Brazil,Latin America,23.5505° S,46.6333° W
+Data Center,Sao Paulo ,,Brazil,Latin America,23.5505° S,46.6333° W
 Data Center,Seattle ,Washington,USA,North America,47.6062° N,122.3321° W
 Data Center,Sydney,New South Wales,Australia,Oceania,33.8688° S,151.2093° E
 Data Center,Tokyo,Japan,,Asia,35.6895° N,139.6917° E
@@ -20,7 +20,7 @@ Network PoP,Atlanta,Georgia,USA,North America,33.7490° N,84.3880° W
 Network PoP,Bangkok,Thailand,,Asia,13.7563° N,100.5018° E
 Network PoP,Barcelona,,Spain,Europe,41.3851° N,2.1734° E
 Network PoP,Beijing,Thailand,,Asia,13.7563° N,116.4074° E
-Network PoP,Bogotá,,Colombia,Latin America,4.7110° N,74.0721° W
+Network PoP,Bogota,,Colombia,Latin America,4.7110° N,74.0721° W
 Network PoP,Bordeaux,,France,Europe,44.8378° N,-0.5792° W
 Network PoP,Boston,Massachusetts,USA,North America,42.3601° N,71.0589° W
 Network PoP,Brisbane,Queensland,Australia,Oceania,27.4698° S,153.0251° E
@@ -39,7 +39,7 @@ Network PoP,Doha,,Qatar,Middle East,25.2760° N,51.5210° E
 Network PoP,Dubai,,United Arab Emirates,Middle East,25.2048° N,55.2708° E
 Network PoP,Dublin,,Ireland,Europe,53.3498° N,6.2603° W
 Network PoP,Dulles,Virginia,USA,North America,38.9531° N,77.4565° W
-Network PoP,Düsseldorf,,Germany,Europe,51.2277° N,6.7735° E
+Network PoP,Dusseldorf,,Germany,Europe,51.2277° N,6.7735° E
 Network PoP,Enschede,,Netherlands,Europe,52.2215° N,6.8937° E
 Network PoP,Fortaleza,,Brazil,Latin America,3.7172° S,38.5434° W
 Network PoP,Geneva,,Switzerland,Europe,46.2044° N,6.1432° E
