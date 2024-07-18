@@ -40,7 +40,7 @@
         .purple-circle {
             width: 20px;
             height: 20px;
-            background-color: #7566a0 !important;
+            background-color: white;
             border-radius: 50px;
             margin-right: 5px;
         }
@@ -76,7 +76,7 @@
                     "type": "FeatureCollection",
                     "features": [],
                 }
-                let filteredData = data.filter((el) => { return el.City !== "Elk Grove Village " && el.City !== "New York" && el.City !== "Secaucus" && el.City !== "Dulles" && el.City !== "Manassas" && el.City !== "Oakland" }) //&& el.City !== "Enschede" })
+                let filteredData = data.filter((el) => { return el.City !== "Elk Grove Village " && el.City !== "New York" && el.City !== "Secaucus" && el.City !== "Dulles" && el.City !== "Manassas" && el.City !== "Oakland" && el.City !== "Enschede" && el.City !== "Davenport" && el.City !== "Culpeper" && el.City !== "Zwolle" })
                 console.log(data, filteredData)
 
                 filteredData.forEach((d, i) => {
@@ -92,7 +92,7 @@
 
                     d.size = 0.15;
                     if (d.Type === 'Data Center')
-                        d.color = "#7566a0" //'#A020F0'
+                        d.color = "white"
                     else if (d.Type === 'Network PoP')
                         d.color = '#E5B80B'
 
@@ -137,99 +137,77 @@
                     .labelLng(d => d.properties.longitude)
                     .labelText(d => d.properties.city)
                     .labelSize((d) => {
-                        let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
-                        let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
-                        if (distanceIsLessThanHalf) {
-                            console.log('aris')
-                            return 0.1
+                        if (d.properties.city === "Guadalajara") {
+                            return 0.4
+                        } else if (d.properties.city === "Kamloops") {
+                            return 0.5
+                        } else if (d.properties.city === "San Francisco") {
+                            return 0.65
+                        } else if (d.properties.city === "San Jose ") {
+                            return 1.1
+                        } else if (d.properties.city === "Montreal") {
+                            return 0.5
+                        } else if (d.properties.city === "Geneva" || d.properties.city === "Munich") {
+                            return 0.6
                         }
                         else {
-                            let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
-                            if (distanceIsLessThanOne) {
-                                console.log('aris');
-
-                                return 0.4
+                            let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
+                            let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
+                            if (distanceIsLessThanHalf) {
+                                console.log('aris')
+                                return 0.1
                             }
                             else {
-                                let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
-                                if (distanceIsLessThanTwo)
-                                    return 0.5;
+                                let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
+                                if (distanceIsLessThanOne) {
+                                    console.log('aris');
+
+                                    return 0.4
+                                }
                                 else {
-                                    let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
-                                    if (distanceIsBetweenTwoAndFour)
-                                        return 0.75
-                                    else
-                                        return 1
+                                    let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
+                                    if (distanceIsLessThanTwo)
+                                        return 0.4;
+                                    else {
+                                        let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
+                                        if (distanceIsBetweenTwoAndFour)
+                                            return 0.75
+                                        else
+                                            return 1
+                                    }
                                 }
                             }
                         }
-
-                        // let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
-                        // let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
-                        // if (distanceIsLessThanHalf)
-                        //     return 0.05
-                        // else {
-                        //     let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
-                        //     if (distanceIsLessThanOne)
-                        //         return 0.15
-                        //     else {
-                        //         let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
-                        //         if (distanceIsLessThanTwo)
-                        //             return 0.3;
-                        //         else {
-                        //             let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
-                        //             if (distanceIsBetweenTwoAndFour)
-                        //                 return 0.6
-                        //             else
-                        //                 return 0.8
-                        //         }
-                        //     }
-                        // }
                     })
                     .labelDotRadius((d) => {
-                        let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
-                        let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
-                        if (distanceIsLessThanHalf)
-                            return 0.05
+                        if (d.properties.city === "Guadalajara") {
+                            return 0.2
+                        } else if (d.properties.city === "Montreal") {
+                            return 0.25
+                        }
                         else {
-                            let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
-                            if (distanceIsLessThanOne)
-                                return 0.2
+                            let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
+                            let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
+                            if (distanceIsLessThanHalf)
+                                return 0.05
                             else {
-                                let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
-                                if (distanceIsLessThanTwo)
-                                    return 0.25;
+                                let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
+                                if (distanceIsLessThanOne)
+                                    return 0.2
                                 else {
-                                    let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
-                                    if (distanceIsBetweenTwoAndFour)
-                                        return 0.4
-                                    else
-                                        return 0.8
+                                    let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
+                                    if (distanceIsLessThanTwo)
+                                        return 0.25;
+                                    else {
+                                        let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
+                                        if (distanceIsBetweenTwoAndFour)
+                                            return 0.4
+                                        else
+                                            return 0.8
+                                    }
                                 }
                             }
                         }
-
-                        // let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
-                        // let distanceIsLessThanHalf = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 0.5 && Math.abs(d.properties.longitude - point.properties.longitude) < 0.5)
-                        // if (distanceIsLessThanHalf)
-                        //     return 0.025
-                        // else {
-                        //     let distanceIsLessThanOne = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 1 && Math.abs(d.properties.longitude - point.properties.longitude) < 1)
-                        //     if (distanceIsLessThanOne)
-                        //         return 0.05
-                        //     else {
-                        //         let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
-                        //         if (distanceIsLessThanTwo)
-                        //             return 0.1;
-                        //         else {
-                        //             let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
-                        //             if (distanceIsBetweenTwoAndFour)
-                        //                 return 0.2
-                        //             else
-                        //                 return 0.5
-                        //         }
-                        //     }
-                        // }
                     })
                     .labelColor((d) => d.properties.color)
                     .labelResolution(2)
