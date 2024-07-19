@@ -47,6 +47,8 @@
     </style>
     <meta charset="UTF-8">
     <script src="//unpkg.com/globe.gl"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 </head>
 
 <body>
@@ -91,11 +93,12 @@
                         d.lng = - d.Long.replace('° W', '');
 
                     d.size = 0.15;
-                    if (d.Type === 'Data Center')
-                        d.color = "white"
-                    else if (d.Type === 'Network PoP')
-                        d.color = '#E5B80B'
-
+                    if (d.Type === 'Data Center') {
+                        d.color = 'rgba(255, 255, 255, 0.8)';
+                    }
+                    else if (d.Type === 'Network PoP') {
+                        d.color = 'rgba(229, 184, 11, 0.8)';
+                    }
                     pointsData.features.push(
                         {
                             'type': 'Feature',
@@ -217,9 +220,8 @@
                     .onGlobeClick(() => world.controls().autoRotate = false)
                     (document.getElementById('globeViz'))
 
-
                 world.controls().autoRotate = true;
-                world.controls().autoRotateSpeed = 0.6;
+                world.controls().autoRotateSpeed = 0.4;
 
                 function stopAutoRotate() {
                     world.controls().autoRotate = false

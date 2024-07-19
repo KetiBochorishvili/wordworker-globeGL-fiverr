@@ -19,7 +19,7 @@ Network PoP,Athens,,Greece,Europe,37.9838° N,23.7275° E
 Network PoP,Atlanta,Georgia,USA,North America,33.7490° N,84.3880° W
 Network PoP,Bangkok,Thailand,,Asia,13.7563° N,100.5018° E
 Network PoP,Barcelona,,Spain,Europe,41.3851° N,2.1734° E
-Network PoP,Beijing,Thailand,,Asia,13.7563° N,116.4074° E
+Network PoP,Beijing,Thailand,,Asia,39.9042° N, 116.4074° E
 Network PoP,Bogota,,Colombia,Latin America,4.7110° N,74.0721° W
 Network PoP,Bordeaux,,France,Europe,44.8378° N,-0.5792° W
 Network PoP,Boston,Massachusetts,USA,North America,42.3601° N,71.0589° W
@@ -28,7 +28,6 @@ Network PoP,Brussels,,Belgium,Europe,50.8503° N,4.3517° E
 Network PoP,Bucharest,,Romania,Europe,44.4268° N,26.1025° E
 Network PoP,Buenos Aires,,Argentina,Latin America,34.6037° S,58.3816° W
 Network PoP,Calgary,Alberta,Canada,North America,51.0447° N,114.0719° W
-Network PoP,Canberra,Australian Capital Territory,Australia,Oceania,35.2809° S,149.1300° E
 Network PoP,Charlotte,North Carolina,USA,North America,35.2271° N,80.8431° W
 Network PoP,Cleveland,Ohio,USA,North America,41.4993° N,81.6944° W
 Network PoP,Copenhagen,,Denmark,Europe,55.6761° N,12.5683° E
