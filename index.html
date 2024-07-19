@@ -5,18 +5,18 @@
         }
 
         #legend {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
+
             display: flex;
             width: 150px;
-            background-color: #152035;
             padding: 20px;
             position: absolute;
             flex-direction: column;
             align-items: flex-start;
             border-radius: 7px;
             z-index: 200;
-            right: 15px;
-            top: 15px;
+            left: 15px;
+            bottom: 15px;
             max-height: calc(100vh - 80px);
             overflow-y: scroll;
             color: white;
@@ -44,10 +44,15 @@
             border-radius: 50px;
             margin-right: 5px;
         }
+
+        .gold-text {
+            color: #E5B80B !important;
+        }
     </style>
     <meta charset="UTF-8">
     <script src="//unpkg.com/globe.gl"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -55,7 +60,7 @@
     <div id="legend">
         <div class="gold">
             <div class="gold-circle"></div>
-            <div>Network PoP</div>
+            <div class="gold-text">Network PoP</div>
         </div>
 
         <div class="purple">
@@ -214,22 +219,19 @@
                     })
                     .labelColor((d) => d.properties.color)
                     .labelResolution(2)
-                    // .pointsData(data)
-                    // .pointAltitude('size')
-                    // .pointColor('color')
-                    .onGlobeClick(() => world.controls().autoRotate = false)
+                    // .onGlobeClick(() => world.controls().autoRotate = false)
                     (document.getElementById('globeViz'))
 
-                world.controls().autoRotate = true;
-                world.controls().autoRotateSpeed = 0.4;
+                // world.controls().autoRotate = true;
+                // world.controls().autoRotateSpeed = 0.4;
 
-                function stopAutoRotate() {
-                    world.controls().autoRotate = false
-                }
+                // function stopAutoRotate() {
+                //     world.controls().autoRotate = false
+                // }
 
-                const globeElement = document.getElementById('globeViz');
-                globeElement.addEventListener('mousedown', stopAutoRotate);
-                globeElement.addEventListener('touchstart', stopAutoRotate);
+                // const globeElement = document.getElementById('globeViz');
+                // globeElement.addEventListener('mousedown', stopAutoRotate);
+                // globeElement.addEventListener('touchstart', stopAutoRotate);
             })
 
     </script>
