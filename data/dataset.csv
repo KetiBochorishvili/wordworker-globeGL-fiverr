@@ -3,7 +3,6 @@ Data Center,Amsterdam,,Netherlands,Europe,52.3676° N,4.9041° E
 Data Center,Ashburn ,Virginia,USA,North America,39.0438° N,77.4874° W
 Data Center,Chicago ,Illinois,USA,North America,41.8781° N,87.6298° W
 Data Center,Denver ,Colorado,USA,North America,39.7392° N,104.9903° W
-Data Center,Elk Grove Village ,Illinois,USA,North America,42.0039° N,87.9703° W
 Data Center,Frankfurt,,Germany,Europe,50.1109° N,8.6821° E
 Data Center,London,,United Kingdom,Europe,51.5074° N,0.1278° W
 Data Center,San Jose ,California,USA,North America,37.3382° N,121.8863° W
@@ -31,15 +30,11 @@ Network PoP,Calgary,Alberta,Canada,North America,51.0447° N,114.0719° W
 Network PoP,Charlotte,North Carolina,USA,North America,35.2271° N,80.8431° W
 Network PoP,Cleveland,Ohio,USA,North America,41.4993° N,81.6944° W
 Network PoP,Copenhagen,,Denmark,Europe,55.6761° N,12.5683° E
-Network PoP,Culpeper,Virginia,USA,North America,38.4731° N,77.9963° W
 Network PoP,Dallas,Texas,USA,North America,32.7767° N,96.7970° W
-Network PoP,Davenport,Iowa,USA,North America,41.5236° N,90.5776° W
 Network PoP,Doha,,Qatar,Middle East,25.2760° N,51.5210° E
 Network PoP,Dubai,,United Arab Emirates,Middle East,25.2048° N,55.2708° E
 Network PoP,Dublin,,Ireland,Europe,53.3498° N,6.2603° W
-Network PoP,Dulles,Virginia,USA,North America,38.9531° N,77.4565° W
 Network PoP,Dusseldorf,,Germany,Europe,51.2277° N,6.7735° E
-Network PoP,Enschede,,Netherlands,Europe,52.2215° N,6.8937° E
 Network PoP,Fortaleza,,Brazil,Latin America,3.7172° S,38.5434° W
 Network PoP,Geneva,,Switzerland,Europe,46.2044° N,6.1432° E
 Network PoP,Genoa,,Italy,Europe,44.4056° N,8.9463° E
@@ -56,7 +51,6 @@ Network PoP,Lima,,Peru,Latin America,12.0464° S,77.0428° W
 Network PoP,Lisbon,,Portugal,Europe,38.7223° N,9.1393° W
 Network PoP,Los Angeles,California,USA,North America,34.0522° N,118.2437° W
 Network PoP,Madrid,,Spain,Europe,40.4168° N,3.7038° W
-Network PoP,Manassas,Virginia,USA,North America,38.7509° N,77.4753° W
 Network PoP,Manchester,,United Kingdom,Europe,53.4808° N,2.2426° W
 Network PoP,Marseille,,France,Europe,43.2965° N,5.3698° E
 Network PoP,Melbourne,Victoria,Australia,Oceania,37.8136° S,144.9631° E
@@ -68,9 +62,7 @@ Network PoP,Monterrey,Nuevo León,Mexico,North America,25.6866° N,100.3161° W
 Network PoP,Montreal,Quebec,Canada,North America,45.5017° N,73.5673° W
 Network PoP,Munich,,Germany,Europe,48.1351° N,11.5820° E
 Network PoP,Nairobi,,Kenya,Africa,1.2921° S,36.8219° E
-Network PoP,New York,New York,USA,North America,40.7128° N,74.0060° W
 Network PoP,Newark,New Jersey,USA,North America,40.7357° N,74.1724° W
-Network PoP,Oakland,California,USA,North America,37.8044° N,122.2712° W
 Network PoP,Ottawa,Ontario,Canada,North America,45.4215° N,75.6972° W
 Network PoP,Paris,,France,Europe,48.8566° N,2.3522° E
 Network PoP,Perth,Western Australia,Australia,Oceania,31.9505° S,115.8605° E
@@ -84,7 +76,6 @@ Network PoP,Rio de Janeiro,,Brazil,Latin America,22.9068° S,43.1729° W
 Network PoP,San Francisco,California,USA,North America,37.7749° N,122.4194° W
 Network PoP,San Juan,,Puerto Rico,North America,18.4655° N,66.1057° W
 Network PoP,Santiago de Chile,,Chile,Latin America,33.4489° S,70.6693° W
-Network PoP,Secaucus,New Jersey,USA,North America,40.7895° N,74.0565° W
 Network PoP,Seville,,Spain,Europe,37.3891° N,5.9845° W
 Network PoP,Sofia,,Bulgaria,Europe,42.6977° N,23.3219° E
 Network PoP,St. John,New Brunswick,Canada,North America,45.2733° N,66.0633° W
@@ -96,4 +87,3 @@ Network PoP,Vilnius,,Lithuania,Europe,54.6872° N,25.2797° E
 Network PoP,Warsaw,,Poland,Europe,52.2297° N,21.0122° E
 Network PoP,Zagreb,,Croatia,Europe,45.8150° N,15.9819° E
 Network PoP,Zurich,,Switzerland,Europe,47.3769° N,8.5417° E
-Network PoP,Zwolle,,Netherlands,Europe,52.5126° N,6.0946° E
