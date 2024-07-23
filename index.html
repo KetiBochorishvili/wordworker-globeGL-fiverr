@@ -13,7 +13,7 @@
             border-radius: 7px;
             z-index: 200;
             left: 40px;
-            bottom: 40px;
+            top: 40px;
             max-height: calc(100vh - 80px);
             overflow-y: scroll;
             color: white;
@@ -44,6 +44,11 @@
 
         .gold-text {
             color: #E5B80B !important;
+        }
+
+        #globeViz {
+            width: 100%;
+            height: 100%;
         }
     </style>
     <meta charset="UTF-8">
@@ -182,9 +187,26 @@
                     })
                     .labelColor((d) => d.properties.color)
                     .labelResolution(2)
+                    .pointOfView({ lat: 37.0902, lng: -95.7129, altitude: 2.5 }, [1500])
+
                     // .onGlobeClick(() => world.controls().autoRotate = false)
                     (document.getElementById('globeViz'))
 
+                let container = (document.getElementById('globeViz'))
+
+                container.getBoundingClientRect()
+                function resizeGlobe() {
+                    const width = container.getBoundingClientRect().width;
+                    const height = container.getBoundingClientRect().height;
+                    world.width([width]);
+                    world.height([height]);
+                }
+
+                // Initial resize
+                resizeGlobe();
+
+                // Add event listener for window resize
+                window.addEventListener('resize', resizeGlobe);
                 // world.controls().autoRotate = true;
                 // world.controls().autoRotateSpeed = 0.4;
 
