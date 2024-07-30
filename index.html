@@ -61,10 +61,10 @@
 
 <body>
     <div id="legend">
-        <div class="gold">
+        <!-- <div class="gold">
             <div class="gold-circle"></div>
             <div class="gold-text">Network PoP</div>
-        </div>
+        </div> -->
 
         <div class="purple">
             <div class="purple-circle"></div>
@@ -76,9 +76,10 @@
 
     <script>
 
-        d3.csv('data/dataset.csv')
+        d3.csv('data/data.csv')
             .then(data => {
 
+                data = data.filter((el) => el.Type !== 'Network PoP');
                 let pointsData = {
                     "type": "FeatureCollection",
                     "features": [],
@@ -134,36 +135,58 @@
                     .labelLng(d => d.properties.longitude)
                     .labelText(d => d.properties.city)
                     .labelSize((d) => {
-                        if (d.properties.city === "Guadalajara") {
-                            return 0.4
-                        } else if (d.properties.city === "Kamloops") {
-                            return 0.5
-                        }
-                        else if (d.properties.city === "Montreal") {
-                            return 0.5
-                        } else if (d.properties.city === "Geneva" || d.properties.city === "Munich") {
-                            return 0.6
-                        }
-                        else {
-                            let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
+                        // if (d.properties.city === "Guadalajara") {
+                        //     return 0.4
+                        // } else if (d.properties.city === "Kamloops") {
+                        //     return 0.5
+                        // }
+                        // else if (d.properties.city === "Montreal") {
+                        //     return 0.5
+                        // } else if (d.properties.city === "Geneva" || d.properties.city === "Munich") {
+                        //     return 0.6
+                        // }
+                        // else {
+                        let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
 
-                            let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
-                            if (distanceIsLessThanTwo)
-                                return 0.4;
-                            else {
-                                let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
-                                if (distanceIsBetweenTwoAndFour)
-                                    return 0.75
-                                else
-                                    return 1
-                            }
+                        let distanceIsLessThanTwo = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 2 && Math.abs(d.properties.longitude - point.properties.longitude) < 2)
+                        if (distanceIsLessThanTwo)
+                            return 0.4;
+                        else {
+                            let distanceIsBetweenTwoAndFour = pointsWithoutCurrent.some((point) => Math.abs(d.properties.latitude - point.properties.latitude) < 4 && Math.abs(d.properties.longitude - point.properties.longitude) < 4)
+                            if (distanceIsBetweenTwoAndFour)
+                                return 0.75
+                            else
+                                return 1
                         }
+                        //  }
                     })
                     .labelDotRadius((d) => {
-                        if (d.properties.city === "Guadalajara") {
-                            return 0.2
-                        } else if (d.properties.city === "Montreal") {
-                            return 0.25
+                        // if (d.properties.city === "Guadalajara") {
+                        //     return 0.2
+                        // } else if (d.properties.city === "Montreal") {
+                        //     return 0.25
+                        // }
+                        // else {
+
+                        if (d.properties.city === "Chicago") {
+                            console.log('chica')
+                            return 1.5
+                        } else if (['Denver', 'Ashburn'].includes(d.properties.city)) {
+                            console.log('denvor')
+
+                            return 1.2
+                        } else if (['San Jose', 'Amsterdam', 'Tokyo', 'Sydney', 'Seattle', 'Atlanta', 'Toronto'].includes(d.properties.city)) {
+                            console.log('san')
+
+                            return 0.9
+                        } else if (['Frankfurt', 'Bucharest', 'Sao Paulo', 'London'].includes(d.properties.city)) {
+                            console.log('frank')
+
+                            return 0.6
+                        } else if (['Miami', 'Mumbai'].includes(d.properties.city)) {
+                            console.log('miami')
+
+                            return 0.3
                         }
                         else {
                             let pointsWithoutCurrent = pointsData.features.filter((k) => k.properties.city !== d.properties.city);
