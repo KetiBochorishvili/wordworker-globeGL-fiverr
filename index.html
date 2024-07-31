@@ -212,7 +212,7 @@
                     .labelResolution(2)
                     .pointOfView({ lat: 37.0902, lng: -95.7129, altitude: 2.5 }, [1500])
 
-                    // .onGlobeClick(() => world.controls().autoRotate = false)
+                    .onGlobeClick(() => world.controls().autoRotate = false)
                     (document.getElementById('globeViz'))
 
                 let container = (document.getElementById('globeViz'))
@@ -230,16 +230,16 @@
 
                 // Add event listener for window resize
                 window.addEventListener('resize', resizeGlobe);
-                // world.controls().autoRotate = true;
-                // world.controls().autoRotateSpeed = 0.4;
+                world.controls().autoRotate = true;
+                world.controls().autoRotateSpeed = 0.3;
 
-                // function stopAutoRotate() {
-                //     world.controls().autoRotate = false
-                // }
+                function stopAutoRotate() {
+                    world.controls().autoRotate = false
+                }
 
-                // const globeElement = document.getElementById('globeViz');
-                // globeElement.addEventListener('mousedown', stopAutoRotate);
-                // globeElement.addEventListener('touchstart', stopAutoRotate);
+                const globeElement = document.getElementById('globeViz');
+                globeElement.addEventListener('mousedown', stopAutoRotate);
+                globeElement.addEventListener('touchstart', stopAutoRotate);
             })
 
     </script>
